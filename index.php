@@ -11,6 +11,13 @@
 
  set_error_handler("handleError");
 
+// Trait
+ trait CombinedName {
+     function getFullName(){
+         return "$this->fname"." $this->lname";
+     }
+ }
+
 // Interface
 interface FullName {
     public function getFullName();
@@ -31,9 +38,7 @@ class Employee implements FullName {
         $this->income = $income;
     }
 
-    function getFullName(){
-        return "$this->fname"." $this->lname";
-    }
+    use CombinedName;
 
 }
 
@@ -42,6 +47,7 @@ class EmployeeIncome extends  Employee {
     function calcNetIncome(){
         return $this->income * 0.85;
     }
+    use CombinedName;
 }
 
 //Creating employee objects

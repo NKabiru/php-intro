@@ -52,7 +52,10 @@
             </tr>
             <tr>
                 <?php
-
+                    echo "<td>{$ann->getFullName()}</td>";
+                    echo "<td>{$ann->job}</td>";
+                    echo "<td>{$ann->income}</td>";
+                    echo "<td>{$ann->calcNetIncome()}</td>";
                 ?>
             </tr>
             <tr>
