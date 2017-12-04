@@ -1,8 +1,22 @@
  <?php
+ error_reporting(E_USER_ERROR);
 
+ function handleError($errno, $errstr, $error_file, $error_line){
+    echo "<b>User generated error $errno found in</b>$error_file line: $error_line <br/>";
+    echo "<b>Description:</b> $errstr";
+    echo "<br/>";
+    echo "End of Script";
+    die();
+ }
+
+ set_error_handler("handleError");
+
+// Interface
 interface FullName {
     public function getFullName();
 }
+
+// Employee class
 class Employee implements FullName {
     var $fname;
     var $lname;
@@ -23,6 +37,7 @@ class Employee implements FullName {
 
 }
 
+// Creating child class that inherits properties of Employee class
 class EmployeeIncome extends  Employee {
     function calcNetIncome(){
         return $this->income * 0.85;
@@ -36,4 +51,5 @@ $sam = new EmployeeIncome("Sam", "Bodie", "Operator", 50000);
 
 $list = array($john, $ann, $sam);
 
+// Importing the php file that contains the HTML
 require 'index.view.php';

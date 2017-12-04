@@ -40,18 +40,19 @@
         <tbody>
             <tr>
                 <?php
-                    echo "<td>{$john->getFullName()}</td>";
-                    echo "<td>{$john->job}</td>";
-                    echo "<td>{$john->income}</td>";
-                    echo "<td>{$john->calcNetIncome()}</td>";
+                   if ($john == NULL){
+                       die("No such employee exists!");
+                   } else {
+                       echo "<td>{$john->getFullName()}</td>";
+                       echo "<td>{$john->job}</td>";
+                       echo "<td>{$john->income}</td>";
+                       echo "<td>{$john->calcNetIncome()}</td>";
+                   }
                 ?>
             </tr>
             <tr>
                 <?php
-                    echo "<td>{$ann->getFullName()}</td>";
-                    echo "<td>{$ann->job}</td>";
-                    echo "<td>{$ann->income}</td>";
-                    echo "<td>{$ann->calcNetIncome()}</td>";
+
                 ?>
             </tr>
             <tr>
